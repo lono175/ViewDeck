@@ -35,21 +35,11 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self shrinkSide];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
     self.view.backgroundColor = self.wrappedController.view.backgroundColor;
-    [self shrinkSideAnimated:animated];
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    [self shrinkSideAnimated:YES];
+    [self shrinkSide];
 }
 
 - (void)setConstrainedSize:(CGFloat)constrainedSize {
